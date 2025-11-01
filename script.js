@@ -121,6 +121,7 @@ const header = document.querySelector('.main-header');
 const navToggle = document.querySelector('.mobile-nav-toggle');
 const navLinks = document.getElementById('nav-links');
 const menuSection = document.getElementById('menu');
+const overlay = document.querySelector('.overlay');
 
 // --- 3. UI/UX Enhancements ---
 
@@ -230,6 +231,7 @@ document.querySelectorAll('a[href="#menu"]').forEach(link => {
         // If the mobile menu is open, close it
         if (navLinks.getAttribute('data-visible') === 'true') {
             navLinks.setAttribute('data-visible', 'false');
+            overlay.setAttribute('data-visible', 'false');
             navToggle.setAttribute('aria-expanded', 'false');
         }
 
@@ -241,16 +243,21 @@ document.querySelectorAll('a[href="#menu"]').forEach(link => {
     });
 });
 
-navToggle.addEventListener('click', () => {
+function toggleNav() {
     const isVisible = navLinks.getAttribute('data-visible');
 
     if (isVisible === 'true') {
         navLinks.setAttribute('data-visible', 'false');
+        overlay.setAttribute('data-visible', 'false');
         navToggle.setAttribute('aria-expanded', 'false');
     } else {
         navLinks.setAttribute('data-visible', 'true');
+        overlay.setAttribute('data-visible', 'true');
         navToggle.setAttribute('aria-expanded', 'true');
     }
-});
+}
+
+navToggle.addEventListener('click', toggleNav);
+overlay.addEventListener('click', toggleNav);
 
 window.addEventListener('scroll', handleHeaderScroll);

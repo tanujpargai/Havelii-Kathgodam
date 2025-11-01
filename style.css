@@ -416,6 +416,10 @@ h1, h2 {
         transform: translateX(0%);
     }
 
+    .overlay {
+        display: block; /* Make it visible on mobile */
+    }
+
     .mobile-nav-toggle {
         display: block;
         z-index: 1001; /* Ensure it's above other content */
