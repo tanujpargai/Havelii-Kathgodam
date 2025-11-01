@@ -23,6 +23,11 @@ body {
     overflow-x: hidden; /* Prevents horizontal scrollbar from animations */
 }
 
+/* Utility class to prevent scrolling when mobile nav is open */
+body.nav-open {
+    overflow: hidden;
+}
+
 h1, h2 {
     font-family: var(--heading-font);
     text-align: center;

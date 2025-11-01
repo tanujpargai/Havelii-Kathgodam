@@ -233,6 +233,7 @@ document.querySelectorAll('a[href="#menu"]').forEach(link => {
             navLinks.setAttribute('data-visible', 'false');
             overlay.setAttribute('data-visible', 'false');
             navToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open'); // Restore scrolling
         }
 
         // Show the menu section
@@ -250,10 +251,12 @@ function toggleNav() {
         navLinks.setAttribute('data-visible', 'false');
         overlay.setAttribute('data-visible', 'false');
         navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
     } else {
         navLinks.setAttribute('data-visible', 'true');
         overlay.setAttribute('data-visible', 'true');
         navToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-open');
     }
 }
 
